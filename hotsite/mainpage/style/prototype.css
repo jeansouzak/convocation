@@ -1,0 +1,84 @@
+:root {
+
+    --background-color: black;
+    --text-color: #9c8657;
+}
+
+* {
+
+    font-family: "MedievalSharp", cursive;
+
+}
+
+body {
+    text-align: center;
+
+    background-color: black;
+}
+
+header {
+
+    background-color: var(--background-color);
+
+    color: var(--text-color);
+
+}
+
+.Logo {
+
+    width: 462px;
+
+}
+
+.page-title {
+
+    font-weight: 400;
+}
+
+.button {
+
+
+    border: #9c8657 solid 1px;
+
+    display: inline-block;
+
+    color: var(--text-color);
+
+}
+
+.gameExplanation {
+    
+    text-align: left;
+
+    color: var(--text-color);
+
+    padding: 0 20vh;
+
+    margin: 20vh 0 0vh 0;
+}
+
+.heroexamples {
+
+    padding: 0 20vh;
+
+    margin: 5vh 0 20vh 0;
+
+    width: 411.104px;
+
+    height: 616.667;
+
+}
+
+.heroes {
+
+    text-align: center;
+
+    width: 308.328px;
+}
+
+.herodescription {
+
+    color: var(--text-color);
+
+    text-align: center;
+}
