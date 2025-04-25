@@ -3,54 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Convocation</title>
-
+    <title>Convocation - Dark Fantasy Card Game</title>
     <link rel="stylesheet" href="style/prototype.css">
+    <link rel="shortcut icon" href="src/img/convocation logo.webp" type="image/x-icon">
 
     <!--Importing text font-->
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cinzel:wght@400..900&family=MedievalSharp&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap" rel="stylesheet">
 
 </head>
 <body>
 
     <header>
-
         <img class="Logo" src="src/img/convocation logo.webp" alt="Logo">
-
-        <h1 class="page-title">Welcome to our Cult </h1>
-
-        
+        <h1 class="page-title">The Battlefield awaits you</h1>
+        <nav class="linkbutton">
+            <a class="button" href="#gameExplanation">About</a>
+            <a class="button" href="#news">News</a>
+            <a class="button" href="#socials">Socials</a>
+        </nav>
     </header>
 
     <main>
 
-        <section class="linkbutton">
-            <h2 class="button">About the game</h2>
-            <h2 class="button">News</h2>
-            <h2 class="button">Socials</h2>
-            <h2 class="button">Patch Notes</h2>
-        </section>
-
-        <section class="gameExplanation">
-
+        <section id="gameExplanation">
             <h2>What is Convocation?</h2>
-            <p>Convocation is a PvP dark fantasy medieval card game made for 2 people, where you select your hero and convocate minions to fight for them.</p>
-
-            <p>The heroes will have their respective decks, each one of them have a really distinct playstyle. </p>
-    
+            <p>Convocation is a PvP dark fantasy medieval card game made for 2 people, where each player select their hero and convocate minions to fight for them.</p>
+            <p>The heroes will have their respective decks, each one of them will represent their people, they all have a really distinct playstyle. </p>
         </section>
 
-        <section class="heroexamples">
+        <figure class="heroexample">
             <img class="heroes" src="src/img/Dwarven Lord.webp" alt="Dwarven lord hero example">
+            <figcaption class="herodescription">Ghormag, the ancient lord of the dwarfs</figcaption>
+        </figure>
 
-            <p class="herodescription">That's the example of one hero, the hero from the dwarf clan</p>
+        <figure class="heroexample">
+            <img class="heroes" src="src/img/goblin king.webp" alt="Goblin king example">
+            <figcaption class="herodescription">Goblin king, the dirtiest of them all</figcaption>
+        </figure>
 
+        <figure class="heroexample">
+            <img class="heroes" src="src/img/Orc general supreme.png" alt="Orc supreme leader hero example">
+            <figcaption class="herodescription">Vrog Lodar, the merciless supreme general of the orcs</figcaption>
+        </figure>
+
+        <section id="news">
+            <h2>News</h2>
+            <p>The game is in early development state, I just have the concept and some ideas of the game for now.</p>
+            <p>I recommend folowing our <a href="#socials">socials</a> to always catch up on the game state.</p>
         </section>
 
     </main>
+
+    <footer id="socials">
+        <h2>Follow us In our socials to stay tuned</h2>
+        <a target="_blank" href="https://www.instagram.com/kieuteka/"><img class="sociallogo" src="src/img/Instagram logo2.webp" alt="IG logo"></a>
+        <a target="_blank" href="https://x.com/home"><img class="sociallogo" src="src/img/twitter-logo.jpg" alt="X logo"></a>
+        <p>contact: joaokieuteka@gmail.com</p>
+        <p>©2025 João Pedro Kieuteka. All rights reserved</p>
+    </footer>
     
 </body>
 </html>
