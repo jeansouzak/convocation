@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Convocation: Invocação de Monstros</title>
+    <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap" rel="stylesheet">
+    <style>
+        /* Estilo geral da página */
+        body {
+            font-family: "MedievalSharp", serif;
+            text-align: center;
+            background-color: #111;
+            /* Cor de fundo escura para dar clima medieval */
+            color: #eee;
+            /* Cor do texto */
+        }
+
+        /* Estilo dos botões */
+        button {
+            padding: 10px 20px;
+            font-size: 18px;
+            margin: 20px;
+            cursor: pointer;
+            /* Muda o cursor para mãozinha */
+        }
+
+        /* Área da carta (container externo) */
+        .card {
+            width: 280px;
+            /* Aumentei o tamanho da carta */
+            height: 420px;
+            margin: 20px auto;
+            perspective: 1200px;
+            /* Um pouco mais de profundidade */
+            border: 4px solid #ccc;
+            /* Moldura cinza clara */
+            border-radius: 20px;
+            /* Arredonda a borda */
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+            /* Sombra leve para destacar */
+            background: linear-gradient(145deg, #333, #222);
+            /* Um fundo elegante na carta */
+            overflow: hidden;
+            /* Impede que a imagem ultrapasse a carta */
+        }
+
+        /* Parte interna da carta que vai girar */
+        .card-inner {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 1s;
+            transform: rotateY(180deg);
+        }
+
+        /* Quando a carta receber a classe 'show', ela gira para a frente */
+        .card.show .card-inner {
+            transform: rotateY(0deg);
+        }
+
+        /* Estilo da imagem do monstro dentro da carta */
+        .card img {
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            position: absolute;
+            top: 0;
+            left: 0;
+            object-fit: cover;
+            /* Garante que a imagem preencha sem distorcer */
+            border-radius: 16px;
+            /* Arredonda a imagem também para acompanhar o container */
+        }
+
+        .card-face {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            backface-visibility: hidden;
+            border-radius: 16px;
+            overflow: hidden;
+        }
+
+        .card-front {
+            transform: rotateY(0deg);
+            /* Frente da carta */
+        }
+
+        .card-back {
+            transform: rotateY(180deg);
+            /* Verso da carta */
+            background: linear-gradient(#444, #222);
+            /* Fundo escuro liso se não tiver imagem */
+        }
+
+        .card.glow {
+            box-shadow: 0 0 30px 10px rgba(255, 215, 0, 0.8);
+            /* Brilho dourado */
+            border-color: gold;
+            /* Borda dourada */
+        }
+
+        /* 
+            Animação chamada 'float' 
+            Faz o elemento subir 10 pixels e depois voltar suavemente 
+        */
+        @keyframes float {
+            0% {
+                /* No começo da animação: a carta está na posição normal (sem mover para cima) */
+                transform: translateY(0px) rotateY(0deg);
+            }
+
+            50% {
+                /* No meio da animação: a carta sobe 10 pixels (efeito de flutuação) */
+                transform: translateY(-10px) rotateY(0deg);
+            }
+
+            100% {
+                /* No final da animação: a carta volta para a posição normal */
+                transform: translateY(0px) rotateY(0deg);
+            }
+        }
+
+        /* 
+            Aplicando a animação no container da carta (.card) 
+        */
+        .card {
+            /* Usa a animação 'float' definida acima */
+            animation: float 4s ease-in-out infinite;
+
+            /* 
+            4s = duração de 4 segundos para completar um ciclo (subir e descer)
+            ease-in-out = a velocidade é mais lenta no começo e no fim (mais natural)
+            infinite = a animação fica repetindo para sempre
+            */
+        }
+
+
+        /* O jogo começa escondido */
+        #game {
+            display: none;
+        }
+    </style>
+
+
+</head>
+
+<body>
+    <h1>Convocation: Invocação de Cartas</h1>
+
+    <!-- Menu Inicial, onde só aparece o botão de começar -->
+    <div id="menu">
+        <button id="startGameBtn">Iniciar Jogo</button><br />
+    </div>
+
+    <!-- Tela do jogo, aparece só depois de clicar no botão "Iniciar Jogo" -->
+    <div id="game">
+        <button id="summonMonsterBtn">Invocar Carta</button><br />
+
+        <div class="card" id="cardContainer">
+            <div class="card-inner">
+                <!-- Verso da carta -->
+                <div class="card-face card-back">
+                    <img src="verso-carta.jpg" alt="Verso da Carta" />
+                </div>
+
+                <!-- Frente da carta -->
+                <div class="card-face card-front">
+                    <img id="monsterImage" src="" alt="Carta do Monstro" />
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Música de fundo (não toca de cara porque navegador bloqueia autoplay) -->
+    <audio id="backgroundMusic" loop>
+        <source src="fantasy.mp3" type="audio/mp3" />
+    </audio>
+
+    <!-- Som de invocação -->
+    <audio id="summonSound">
+        <source src="spellcast.mp3" type="audio/mp3" />
+    </audio>
+
+</body>
+
+<script>
+    // Lista de imagens de monstros para serem sorteados
+    const monsters = [
+        'anao.jpg',
+        'elfo.jpg',
+        'anao2.jpg',
+        'dragao.jpg',
+        'elfo2.jpg',
+        'dragao2.jpg'
+    ];
+
+    // Pegando os elementos da página (botões, imagem, sons)
+    const startGameBtn = document.getElementById('startGameBtn');
+    const summonMonsterBtn = document.getElementById('summonMonsterBtn');
+    const monsterImage = document.getElementById('monsterImage');
+    const cardContainer = document.getElementById('cardContainer');
+    const backgroundMusic = document.getElementById('backgroundMusic');
+    const summonSound = document.getElementById('summonSound');
+
+    // Função para iniciar o jogo
+    startGameBtn.addEventListener("click", function () {
+        // Esconde o menu
+        document.getElementById('menu').style.display = 'none';
+
+        // Mostra o jogo
+        document.getElementById('game').style.display = 'block';
+
+        // Começa a tocar a música de fundo
+        backgroundMusic.play();
+        backgroundMusic.volume = 0.5; // Deixa a música mais baixa
+    });
+
+    // Função para invocar um monstro
+    summonMonsterBtn.addEventListener("click", function () {
+        // Sorteia um número aleatório entre 0, 1 ou 2
+        const randomIndex = Math.floor(Math.random() * monsters.length);
+        const selectedMonster = monsters[randomIndex];
+
+        // Faz a carta "girar" novamente: reseta a animação
+        cardContainer.classList.remove("show");
+
+        //Adiciona o efeito de "brilhar"ao invocar
+        cardContainer.classList.add("glow");
+
+        // Depois de 300ms (0.3 segundos), troca a imagem e mostra a carta com animação
+        setTimeout(() => {
+            //Adiciona a imagem
+            monsterImage.src = selectedMonster;
+            cardContainer.classList.add("show");
+            
+            summonSound.currentTime = 0; // Volta o som para o começo toda vez que clicar
+            summonSound.play(); // Toca o som de invocação
+
+            //Remove o brilho depois de invocado
+            cardContainer.classList.remove("glow");
+        }, 900);
+    });
+</script>
+
+</html>
