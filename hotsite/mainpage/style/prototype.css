@@ -1,0 +1,78 @@
+:root {
+    --background-color: rgb(0, 0, 0);
+    --text-color: #9c8657;
+}
+
+* {
+    font-family: "MedievalSharp", serif;
+}
+
+body {
+    text-align: center;
+    background-color: black;
+}
+
+header {
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+.Logo {
+    width: 100%;
+    max-width: 462px;
+}
+
+.page-title {
+    font-weight: 400;
+}
+
+.button {
+    border: #9c8657 solid 1px;
+    display: inline-block;
+    color: var(--text-color);
+    padding: 10px 10px;
+    margin: 0 10px;
+}
+
+#gameExplanation {
+    text-align: left;
+    color: var(--text-color);
+    padding: 8vh 20vh;
+    margin: 20vh 0 0vh 0;
+}
+
+.heroexample {
+    display: inline-block;
+    padding: 0 10vh;
+    margin: 10vh 0 5vh 0;
+    width: 411.104px;
+    height: 616.667px;
+}
+
+.heroes {
+    text-align: center;
+    width: 308.328px;
+}
+
+.herodescription {
+    margin: 30px 0 166px 0;
+    color: var(--text-color);
+}
+
+#news {
+    margin: 0;
+    padding: 0 20vh;
+    text-align: left;
+    color: var(--text-color);
+}
+
+footer {
+    margin: 20vh 0 0 0;
+    color: var(--text-color);
+}
+
+.sociallogo {
+    margin: 0 10px;
+    width: 46px;
+    height: 46px;
+}

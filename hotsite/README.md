@@ -1,1 +1,1 @@
-# Game hotsite
+# Game Hotsite
