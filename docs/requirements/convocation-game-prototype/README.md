@@ -12,7 +12,7 @@ Some of the game Ideas include:
 
 - The players will choose from a collection of Heroes, each hero will have it's own deck, the decks will be based on medieval fantasy races, for example the goblin king Hero: 
 
-![image](goblin-king.webp)
+<img src="goblin-king.webp" alt="goblin king hero examples" width="600px">
 
 He will have a deck that consists on convoquing a lot of Goblins to the field, they will also be putting a lot of traps on the field to get the enemy off guard;
 
