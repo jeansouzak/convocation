@@ -2,15 +2,17 @@
 
 This will be the first edition of the Convocation game rulebook, this book will have several editions as the game development keeps going.
 
-I will break the game rulebook into 3 sections: 
+I will break the game rulebook into 4 sections: 
 
-- General section: Here I will explain the core mechanics of the game, how the game plays, what the players can do on It, how the players interact with each other, etc..
+- Introduction section: Here I will explain the core mechanics of the game, how the game plays, what the players can do on It, how the players interact with each other, etc..
 
 - Creature Rules: This will include the explanation about the creatures, "what is a creature", "what does it do", "how it works", etc...
 
-- Battlefield Rules: Here you will find some explanation about the battlefield and how It works, all its divisions, how it interacts with each other, etc...
+- Battlefield Rules: Here you will find some explanation about the battlefield and how It works, all its divisions, how the player interacts with it, etc...
 
-<h2>Game Rules</h2>
+- Game flow: Here is the explanation about how the game flows, the phases of each turn, how it works, what players do in a turn, etc...
+
+<h2>Game Rules Introduction</h2>
 
 the game is a PvP 1v1 turn-based card game, where the players take turns against each other with the objective of winning the game;
 
@@ -24,7 +26,11 @@ The Goblin king, every hero will have by default 100 health.
 
 - Every hero will come with its own deck, containing 40 cards Minimum, the Goblin king for example will have a Goblin themed deck, the great majority of his deck will be goblin creatures;
 
+<h4>Deck creation rules</h4>
+
 - The players will be able to customize their decks, the decks need 40 cards minimum, 50 cards maximum;
+
+- Every card has a limit of 3 copies per deck;
 
 - 25 of the cards of the deck need to match the race of the selected hero;
 
@@ -72,4 +78,4 @@ Every turn will start with a phase called "Draw phase", where the turn owner dra
 
 Each turn, the player will have 2 "Convocations", these "Convocations" are a resource used for convoquing creatures to your side of the field, they are refilled every start of a turn, every creature will cost 1 "Convocation" by default;
 
-When the player is satisfied with his turn, he can pass the turn to the enemy player and the whole flow repeats itself;
+When the player is satisfied with his turn, he can pass the turn to the enemy player and the whole flow repeats itself.
