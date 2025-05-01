@@ -1,1 +1,1 @@
-# Requirement and techincal decisions record
+# Requirement and techincal documentations
