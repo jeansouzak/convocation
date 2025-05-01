@@ -1,6 +1,6 @@
 # Requirements documentation structures
 
-This is the folder where you will find every Requirement and technical documentation about our "Convocation" project, Every aspect of the game's documentation will have its own folder, I will be following with an explanation about every folder here and its content:
+This is the folder where you will find every game requirement about our "Convocation" project, Every aspect of the game's documentation will have its own folder, I will be following with an explanation about every folder here and its content:
 
 # "convocation-game-prototype"
 
